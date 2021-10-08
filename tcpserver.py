@@ -1,8 +1,9 @@
 from socket import *
 import pickle
 from _thread import *
+import sys
 
-host = '127.0.0.1' 
+host = sys.argv[1] 
 ThreadCount = 0
 serverPort = 9890
 serverSocket = socket(AF_INET,SOCK_STREAM)
