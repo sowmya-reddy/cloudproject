@@ -9,7 +9,7 @@ serverPort = 9890
 
 def threaded_clients(clientSocket):
     clientSocket.connect((serverName,serverPort))
-    print("Connected to server. Use commands 'set' and 'get' to retrieve or store key value pairs. Use Ctrl D in new line to exit command line and 'quit' to close the connection")
+    print("Connected to server. Use commands 'set' and 'get' to retrieve or store key value pairs. Use 'end' in new line to exit command line and 'quit' to close the connection")
     close_flag=False
     while True:
         user_writing = [] 
@@ -24,10 +24,9 @@ def threaded_clients(clientSocket):
         if(close_flag):
             break
         data = pickle.dumps(user_writing)
-        print(user_writing)
-        #clientSocket.sendall(data) 
-        #value = clientSocket.recv(1024)
-        #print(value.decode("utf-8"))
+        clientSocket.sendall(data) 
+        value = clientSocket.recv(1024)
+        print(value.decode("utf-8"))
     print("Connection closed")
     clientSocket.close()
   
