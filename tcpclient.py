@@ -26,7 +26,7 @@ def threaded_clients(clientSocket):
             break
         data = pickle.dumps(user_writing)
         clientSocket.sendall(data)
-        time.sleep(2)
+        time.sleep(5)
         value = clientSocket.recv(1024)
         print(value.decode("utf-8"))
     print("Connection closed")
