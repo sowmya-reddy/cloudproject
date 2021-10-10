@@ -2,6 +2,7 @@ from socket import *
 import pickle
 import threading
 import sys
+import time
 
 serverName = sys.argv[1]
 serverPort = 9890
@@ -25,7 +26,7 @@ def threaded_clients(clientSocket):
             break
         data = pickle.dumps(user_writing)
         clientSocket.sendall(data)
-        sleep(5)
+        time.sleep(5)
         value = clientSocket.recv(1024)
         print(value.decode("utf-8"))
     print("Connection closed")
