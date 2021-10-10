@@ -3,7 +3,7 @@ import pickle
 import threading
 import sys
 
-serverName = 'localhost'
+serverName = sys.argv[2]
 serverPort = 9890
 
 def threaded_clients(clientSocket):
