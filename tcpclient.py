@@ -14,14 +14,13 @@ def threaded_clients(clientSocket):
     while True:
         user_writing = [] 
         while True: 
-           try:
-               cmd=input()
-               if(cmd=='quit'):
-                    close_flag=True
-                    break
-               user_writing.append(cmd)
-           except EOFError:
+           cmd=input()
+           if(cmd=='end'):
                break
+           if(cmd=='quit'):
+                close_flag=True
+                break
+           user_writing.append(cmd)
         if(close_flag):
             break
         data = pickle.dumps(user_writing)
