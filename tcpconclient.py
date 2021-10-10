@@ -29,7 +29,7 @@ def threaded_clients(clientSocket):
                    print(value.decode("utf-8"))
         print("Connection closed")
         clientSocket.close()
-     elif(cmd=='set):
+     elif(cmd=='set'):
         for i in range(len(datakey)):
            keyval=[]
            keyval.append('set '+ datakey[i] + len(datavalue[i]))
