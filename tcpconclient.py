@@ -27,7 +27,6 @@ def threaded_clients(clientSocket):
                    print('VALUE ' + key + '\n' + 'STORED')
                else:
                    print('Request number: ',count)
-                   print('VALUE ' + key + ' '+ str(len(value)))
                    print(value.decode("utf-8"))
                count+=1
         print("Connection closed")
@@ -46,7 +45,6 @@ def threaded_clients(clientSocket):
            elif(value.decode("utf-8")=="STORED"):
                print('VALUE ' + key + '\n' + 'STORED')
            else:
-               print('VALUE ' + key + ' '+ str(len(value)))
                print(value.decode("utf-8"))
         print("Connection closed")
         clientSocket.close()
