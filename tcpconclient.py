@@ -33,9 +33,7 @@ def threaded_clients(clientSocket):
         for i in range(len(datakey)):
            keyval=[]
            keyval.append('set '+ datakey[i]+ ' ' + str(len(datavalue[i])))
-           print('set '+ datakey[i]+ '' + str(len(datavalue[i])))
            keyval.append(str(datavalue[i]))
-           print(keyval)
            data = pickle.dumps(keyval)
            clientSocket.sendall(data)
            key=datakey[i]
