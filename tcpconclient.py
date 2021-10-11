@@ -12,6 +12,7 @@ def threaded_clients(clientSocket):
     datakey=['Misfits','Inseparable','Matrix','Poet','Freedom','Beautiful','Magician','Unbound','Harlem','Emptiness','Cuckoo']
     datavalue=['Misfits','Inseparable','Matrix','Poet Warrior','On Freedom: Four Songs of Care and Constraint','Beautiful World','The Magician','Unbound','Harlem Shuffle','The Book of Form and Emptiness','Cloud Cuckoo Land']
     if(cmd=='get'):
+        count=0
         while True:
             for i in range(len(datakey)):
                keyval=[]
@@ -25,8 +26,10 @@ def threaded_clients(clientSocket):
                elif(value.decode("utf-8")=="STORED"):
                    print('VALUE ' + key + '\n' + 'STORED')
                else:
+                   print('Request number: ',count)
                    print('VALUE ' + key + ' '+ str(len(value)))
                    print(value.decode("utf-8"))
+               count+=1
         print("Connection closed")
         clientSocket.close()
     elif(cmd=='set'):
